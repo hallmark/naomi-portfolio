@@ -1,0 +1,394 @@
+<html>
+<head>
+  <title>Naomi Ture | Portfolio</title>
+  <style>
+    html {
+      background-color: #132940;
+      background-image: url('images/mapbackdrop.jpg');
+      background-position: top center;
+    }
+    body {
+      margin: 0;
+    }
+    #hd, #ft {
+      width: 930px;
+      margin: 0 auto;
+    }
+    #hd {
+      height: 40px;
+      margin-top: 130px;
+    }
+    #ft {
+      height: 50px;
+      padding-top: 7px;
+      font-family: Arial;
+      font-weight: bold;
+      font-size: 14px;
+      color: #71879F;
+    }
+    #bd {
+      width: 100%;
+      height: 398px;
+      border-width: 1px 0;
+      border-color: white;
+      border-style: solid;
+      clear: both;
+      position: relative;
+    }
+    #logo {
+      float: left;
+      width: 320px;
+      font-family: Arial;
+      font-weight: bold;
+      font-size: 29px;
+    }
+    #logo .name {
+      color: white;
+    }
+    #logo .portfolio {
+      color: #71879F;
+    }
+    #navBar {
+      float: right;
+      width: 520px;
+      font-family: Arial;
+      font-weight: bold;
+      font-size: 15px;
+      text-align: right;
+      padding-top: 13px;
+    }
+    #navBar a:link,
+    #navBar a:visited,
+    #navBar a:hover {
+      color: #71879F;
+      text-decoration: none;
+      padding-left: 18px;
+    }
+    #navBar a.current:link,
+    #navBar a.current:visited,
+    #navBar a.current:hover {
+      color: white;
+    }
+    #navBar a:hover,
+    #navBar a.current:hover {
+      text-decoration: underline;
+    }
+    .clear {
+      clear: both;
+      font-size: 1px;
+    }
+    
+    .centered-canvas {
+      width: 425px;
+      height: 285px;
+      margin: 55px auto 0;
+      position: relative;
+    }
+    #dummyFrontBox {
+      width: 425px;
+      height: 285px;
+      border: 1px solid white;
+      background-color: #71879F;
+      margin: 0;
+      z-index: 10;
+      position: relative;
+    }
+    .box {
+      position: absolute;
+      margin: 0;
+    }
+    .box img {
+      width: 100%;
+      height: 100%;
+    }
+    .front-box {
+      width: 425px;
+      height: 285px;
+      border: 1px solid white;
+      background-color: #71879F;
+      margin: 0;
+      z-index: 10;
+      position: relative;
+    }
+    .back-box {
+      width: 185px;
+      height: 125px;
+      border: none;
+      position: absolute;
+      top: 90px;
+      z-index: 1;
+    }
+    .back-box img {
+      width: 185px;
+      height: 125px;
+      z-index: 10;
+    }
+  </style>
+  
+  <!-- YUI -->
+  <script type="text/javascript" charset="utf-8"
+          src="http://yui.yahooapis.com/3.1.1/build/yui/yui-min.js">
+  </script>
+  
+  <!-- Prototype and scriptaculous -->
+  <script src="http://ajax.googleapis.com/ajax/libs/prototype/1.6/prototype.js" type="text/javascript"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/scriptaculous/1.8/scriptaculous.js" type="text/javascript"></script>
+  
+  <!-- jsGrowl -->
+  <link type="text/css" rel="stylesheet" media="screen" href="css/jsGrowl_white.css">
+  <link type="text/css" rel="stylesheet" media="screen" href="css/jsGrowl.css">
+  <script src="js/jsGrowl.js" type="text/javascript"></script>
+  <script src="js/jsGrowl_prototype.js" type="text/javascript"></script>
+  <script type="text/javascript">
+    var js_growl = new jsGrowl('js_growl');
+  </script>
+  
+  
+  <script type="text/javascript">
+    /**
+     *
+     *   ADD NEW CAROUSEL ITEMS HERE!!!
+     *
+     */
+    var frontBox = {
+      'imgSrc': 'images/doc - perfectmatch.jpg',
+      'title': 'A Perfect Match'
+    };
+    var leftBoxes = [
+      {
+        'imgSrc': 'images/video - csma.jpg',
+        'title': "What's Inside"
+      },
+      {
+        'imgSrc': 'images/video - shoplocal.jpg',
+        'title': "Shop Local"
+      }
+    ];
+    var rightBoxes = [
+      {
+        'imgSrc': 'images/doc - draw out.jpg',
+        'title': "Draw Out"
+      },
+      {
+        'imgSrc': 'images/exh - globallives.jpg',
+        'title': "Global Lives"
+      }
+    ];
+  </script>
+
+  <!-- Page initialization -->
+  <script type="text/javascript">
+    var support = {};
+    
+    // from http://gist.github.com/373874
+    // (heavyweight method would be to use http://www.modernizr.com/docs/#csstransitions)
+    support.csstransitions =  (function(){
+        var thisBody = document.body || document.documentElement,
+        thisStyle = thisBody.style,
+        support = thisStyle.WebkitTransition !== undefined || thisStyle.MozTransition !== undefined || thisStyle.OTransition !== undefined || thisStyle.transition !== undefined;
+
+        return support;
+    })();
+    
+    var boxes = leftBoxes.reverse().concat(frontBox, rightBoxes);
+    var frontIdx = leftBoxes.length;
+    
+    var handleFrontClick = function(evt, el)
+    {
+      var title = boxes[el.boxIdx].title;
+      js_growl.addMessage({msg:'Clicked on ' + title});
+    };
+    
+    var handleSideClick = function(evt, el)
+    {
+      positionBoxes(el.boxIdx, true);
+    };
+    
+    var initBoxes = function() {
+      $('dummyFrontBox').remove();
+      
+      var stage = $('stage');
+      for (var i=0; i<boxes.length; i++)
+      {
+        var aBox = new Element("div", {'class':'box', id:'box'+i}).update(
+          new Element("img", {'src':boxes[i].imgSrc})
+        );
+        aBox.boxIdx = i;
+        stage.appendChild(aBox);
+      }
+      
+      positionBoxes(frontIdx, false);
+    };
+    
+    var repositionBox = function(aBox, newWidth, newHeight, newTop, newLeft, useTransitions)
+    {
+      if (useTransitions)
+      {
+        var curTop = parseInt(aBox.getStyle('top').replace("px", ""), 10);
+        var curLeft = parseInt(aBox.getStyle('left').replace("px", ""), 10);
+        new Effect.Move(aBox, {x: newLeft-curLeft, y: newTop-curTop, duration:0.4, transition: Effect.Transitions.sinoidal});
+        
+        var curWidth = aBox.getWidth();
+        var pcnt = newWidth / curWidth * 100.0;
+        //var curHeight = aBox.getHeight();
+        new Effect.Scale(aBox, pcnt, {scaleMode: { originalHeight: newHeight/pcnt*100.0, originalWidth: newWidth/pcnt*100.0 }, duration:0.4, transition: Effect.Transitions.sinoidal})
+      }
+      else
+      {
+        aBox.setStyle({
+          width: newWidth,
+          height: newHeight,
+          top: newTop,
+          left: newLeft
+        });
+      }
+    };
+    
+    var positionBoxes = function(newCenterIdx, useTransitions)
+    {
+      // 	-webkit-transition: left .4s ease-in-out, top .4s ease-in-out, -webkit-transform .4s ease-in-out, -webkit-box-shadow .4s linear, opacity .4s linear;
+      
+      
+      // set position/styles of new center box
+      var aBox = $('box'+newCenterIdx);
+      aBox.setStyle({
+        border: '1px solid white',
+        margin: 0,
+        'zIndex': 10
+      });
+      repositionBox(aBox, 425, 285, 0, 0, useTransitions);
+      /*
+      if (useTransitions)
+      {
+        var curTop = parseInt(aBox.getStyle('top').replace("px", ""), 10);
+        var curLeft = parseInt(aBox.getStyle('left').replace("px", ""), 10);
+        new Effect.Move(aBox, {x: -curLeft, y: -curTop, duration:0.4, transition: Effect.Transitions.sinoidal});
+        
+        var curWidth = aBox.getWidth();
+        var pcnt = 425.0 / curWidth * 100.0;
+        //var curHeight = aBox.getHeight();
+        new Effect.Scale(aBox, pcnt, {scaleMode: { originalHeight: 285/pcnt*100.0, originalWidth: 425/pcnt*100.0 }, duration:0.4, transition: Effect.Transitions.sinoidal})
+      }
+      else
+      {
+        aBox.setStyle({
+          width: 425,
+          height: 285,
+          top: 0,
+          left: 0
+        });
+      }*/
+      aBox.addClassName('in-front');
+      aBox.removeClassName('in-back');
+      
+      // set positions/styles of LH boxes
+      for (var i=0; i<newCenterIdx; i++) {
+        aBox = $('box'+i);
+        aBox.setStyle({
+          /*width: 185,
+          height: 125,*/
+          border: 'none',
+          margin: 0,
+          'zIndex': 1 /*,
+          top: 90,
+          left: 115 - ( (newCenterIdx-i)*205 )*/
+        });
+        repositionBox(aBox, 185, 125, 90, 115 - ( (newCenterIdx-i)*205 ), useTransitions);
+        aBox.addClassName('in-back');
+        aBox.removeClassName('in-front');
+      }
+
+      // set positions/styles of RH boxes
+      for (var i=newCenterIdx+1; i<boxes.length; i++) {
+        aBox = $('box'+i);
+        aBox.setStyle({
+          /*width: 185,
+          height: 125,*/
+          border: 'none',
+          margin: 0,
+          'zIndex': 1 /*,
+          top: 90,
+          left: 127 + ( (i-newCenterIdx)*205 )*/
+        });
+        repositionBox(aBox, 185, 125, 90, 127 + ( (i-newCenterIdx)*205 ), useTransitions);
+        aBox.addClassName('in-back');
+        aBox.removeClassName('in-front');
+      }
+      
+    };
+    
+    YUI().use('node-base', function(Y) {
+         function init() {
+           //js_growl.addMessage({msg:'initializing ' + boxes.length + ' items..'});
+           //js_growl.addMessage({msg:'CSS Transitions: ' + (support.csstransitions? 'supported':'unsupported')});
+           
+           initBoxes();
+           
+           // prototype 1.7...
+           //var frontHandler = new Event.Handler('stage', 'click', '.in-front', handleFrontClick);
+           //frontHandler.start();
+           
+           Event.observe('stage', 'click', function(event) {
+             var frontEl = Event.findElement(event, '.in-front');
+             var backEl = Event.findElement(event, '.in-back');
+             if (frontEl)
+             {
+               handleFrontClick(event, frontEl);
+             }
+             else if (backEl)
+             {
+               handleSideClick(event, backEl);
+             }
+           });
+         }
+         Y.on("domready", init);
+    });
+  </script>
+</head>
+<body>
+
+<div id="pageContent">
+  <div id="hd">
+    <div id="logo">
+      <span class="name">Naomi Ture</span> <span class="portfolio">Portfolio</span>
+    </div>
+    <div id="navBar">
+      <a href="" class="current">HOME</a>
+      <a href="">CURRENT WORK</a>
+      <a href="">PORTFOLIO</a>
+      <a href="">CV</a>
+      <a href="">BIO</a>
+      <a href="">CONTACT</a>
+    </div>
+    <div class="clear">&nbsp;</div>
+  </div>
+  
+  <div id="bd">
+    <div class="centered-canvas" id="stage">
+      <div id="dummyFrontBox"></div>
+      <!-- div class="front-box"><img src="images/doc - perfectmatch.jpg"/></div>
+      <div class="back-box" id="bb1" style="left: -90px;"><img src="images/video - csma.jpg"/></div>
+      <div class="back-box" id="bb2" style="left: 332px;"><img src="images/doc - draw out.jpg"/></div>
+      <div class="back-box" id="bb3" style="left: -295px;"><img src="images/video - shoplocal.jpg"/></div>
+      <div class="back-box" id="bb4" style="left: 537px;"><img src="images/exh - globallives.jpg"/></div -->
+    </div>
+    <!--script type="text/javascript">
+      YUI().use('node', function(Y) {
+          var frontNode = Y.one('#bd .front-box');
+          var node1 = Y.one('#bb1');
+          console.log(frontNode.getXY());
+          node1.setX(frontNode.getXY()[0]-95);
+          node1.setStyle('visibility', 'visible');
+      });
+    </script -->
+  </div>
+  
+  <div id="ft">
+    Documentary, Video &amp; New Media Art
+  </div>
+</div>
+
+<div id="jsGrowl"></div>
+
+</body>
+</html>

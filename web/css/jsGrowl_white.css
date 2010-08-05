@@ -1,0 +1,32 @@
+.jsgrowl_msg_container .jsg_body{
+  background-color:#FFF;
+}
+
+.jsgrowl_msg_container .jsg_title{
+  color:#000;
+}
+
+.jsgrowl_msg_container .jsg_msg{
+  color:#000;
+}
+.jsgrowl_msg_container .jsg_side{
+  background-color:#fff;
+}
+.jsgrowl_msg_container .jsg_middle{
+  background-color:#fff;
+}
+.jsgrowl_msg_container .jsg_corner {
+  background-image:url(../images/white/jsgrowl_corners.png) ;
+}
+.jsgrowl_msg_container:hover .jsg_corner {
+  background-image:url(../images/white/jsgrowl_corners_hover.png) ;
+}
+.jsgrowl_msg_container:hover .jsg_middle {
+  background-image:url(../images/white/jsgrowl_middle_hover.png) ;
+}
+.jsgrowl_msg_container:hover .jsg_side {
+  background-image:url(../images/white/jsgrowl_side_hover.png) ;
+}
+.jsgrowl_msg_container:hover .jsg_close{
+  background-image: url(../images/white/jsgrowl_close.png);
+}

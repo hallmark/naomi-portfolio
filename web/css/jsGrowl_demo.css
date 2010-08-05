@@ -1,0 +1,173 @@
+body{
+  background-color: #eee ;
+  font-family: Arial, Helvetica, sans-serif;
+  color:white;
+  padding: 0 0 40px 0;
+  margin:0;
+}
+
+a:link,
+a:visited,
+a:active {
+  color:#E7761E;
+}
+
+#footer a:link,
+#footer a:visited,
+#footer a:active {
+  color:#fff;
+}
+
+p{
+  padding: 0 20px 0 0;
+}
+
+.code_snippet{
+  border:1px #E7761E solid;
+  background-color: #FFFFDF;
+  color:black;
+  font-size:11px;
+  padding:5px;
+  margin:5px;
+}
+
+#body_container{
+  width:800px;
+  height:100%;
+  margin: 40px 0 0 40px ;
+  padding: 0 ;
+  background-color: #1A4256;
+  border:2px #E7761E solid;
+}
+
+#header{
+  height:62px;
+  margin:-2px 0 0 20px ;
+  padding:20px 0 0 10px;
+  width:300px;
+  background-color: #eee;
+  border:2px #E7761E solid;
+  border-top:0;
+  float:left;
+}
+
+#footer {
+  margin: 0 0 0 40px;
+  background-color:#E7761E;
+  font-size:12px;
+  text-align:right;
+  width:798px;
+  padding:2px 4px 2px 2px ;
+}
+
+#demo_form{
+  float:right;
+  width:300px;
+  padding: 0 0 0 10px;
+  font-size:12px;
+  height:40px;
+}
+
+#jsgd_msg{
+  width:200px;  
+}
+
+h1{
+  margin:0;
+  padding:0;
+  font-size:30px;
+  color:#000;
+}
+
+h2{
+  font-size:14px;
+  margin:2px 0 10px 0 ;
+  padding:0;
+  border-bottom:1px #E7761E solid;
+
+}
+
+#content_container{
+  margin:0;
+  padding:10px 0px 20px 20px;
+  clear:both;
+  font-size:14px;
+}
+
+.link{
+  cursor: pointer;
+  color:blue;
+}
+
+.colors{
+  color:#4F2300;
+  color:#1A4256;
+  color:#40876F;
+  color:#C3D640;
+  color:#FADF2C;
+  color:#E7761E;
+}
+
+
+.nav{
+  float:left;
+  margin:0;
+  padding:0;
+  border: 2px #A26111 solid;
+  border-top:0px;
+  border-left:0px;
+  background-color:#A26111;
+  width: 100px;
+  height:78px;
+}
+
+#mode{
+  clear:both;
+  width:312px;
+  padding: 1px;
+  margin: 0 0 0 20px;
+  background-color:#E7761E;
+  font-size:12px;
+  cursor: pointer;
+}
+
+.nav li {
+  font-size:16px;
+  list-style:none;
+  padding: 0 10px 0px 10px;
+  background-color:#A26111;
+  color:#eee;
+  cursor:pointer;
+}
+
+.nav li:hover{
+  background-color:#E7761E;
+  color:#fff;
+}
+
+#faq_list {
+  padding:0;
+  margin:0;
+  list-style:none;
+}
+#faq_list .question{
+  padding:0;
+  margin:0 0 10px 0;
+  color:#F43513;
+}
+#faq_list .answer{
+  padding:0;
+  margin:0 20px 10px 0;
+  color:#ddd;
+  font-size:12px;
+}
+#faq_list .answer li{
+  padding:0 0 5px 0;
+}
+
+
+
+
+
+
+
