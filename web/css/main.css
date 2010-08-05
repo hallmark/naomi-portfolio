@@ -1,0 +1,81 @@
+/**
+ * Main styles for portfolio site.
+ */
+
+html {
+  background-color: #132940;
+  background-image: url('../images/mapbackdrop.jpg');
+  background-position: top center;
+}
+body {
+  margin: 0;
+}
+#hd, #ft {
+  width: 930px;
+  margin: 0 auto;
+}
+#hd {
+  height: 40px;
+  margin-top: 130px;
+}
+#ft {
+  height: 50px;
+  padding-top: 7px;
+  font-family: Arial;
+  font-weight: bold;
+  font-size: 14px;
+  color: #71879F;
+}
+#bd {
+  width: 100%;
+  height: 398px;
+  border-width: 1px 0;
+  border-color: white;
+  border-style: solid;
+  clear: both;
+  position: relative;
+}
+#logo {
+  float: left;
+  width: 320px;
+  font-family: Arial;
+  font-weight: bold;
+  font-size: 29px;
+}
+#logo .name {
+  color: white;
+}
+#logo .portfolio {
+  color: #71879F;
+}
+#navBar {
+  float: right;
+  width: 520px;
+  font-family: Arial;
+  font-weight: bold;
+  font-size: 15px;
+  text-align: right;
+  padding-top: 6px;
+}
+#navBar a:link,
+#navBar a:visited,
+#navBar a:hover {
+  color: #71879F;
+  text-decoration: none;
+  padding: 8px 9px;
+  display: inline-block;
+}
+#navBar a.current:link,
+#navBar a.current:visited,
+#navBar a.current:hover {
+  color: white;
+  background-color: #71879F;
+}
+#navBar a:hover,
+#navBar a.current:hover {
+  text-decoration: underline;
+}
+.clear {
+  clear: both;
+  font-size: 1px;
+}
