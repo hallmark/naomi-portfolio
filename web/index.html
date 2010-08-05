@@ -23,6 +23,7 @@
     .box {
       position: absolute;
       margin: 0;
+      cursor: pointer;
     }
     .box img {
       width: 100%;
@@ -79,7 +80,8 @@
      */
     var frontBox = {
       'imgSrc': 'images/doc - perfectmatch.jpg',
-      'title': 'A Perfect Match'
+      'title': 'A Perfect Match',
+      'link': 'portfolio-apm.html'
     };
     var leftBoxes = [
       {
@@ -98,7 +100,8 @@
       },
       {
         'imgSrc': 'images/exh - globallives.jpg',
-        'title': "Global Lives"
+        'title': "Global Lives",
+        'link': 'portfolio-glp.html'
       }
     ];
   </script>
@@ -122,8 +125,17 @@
     
     var handleFrontClick = function(evt, el)
     {
-      var title = boxes[el.boxIdx].title;
-      js_growl.addMessage({msg:'Clicked on ' + title});
+      var link = boxes[el.boxIdx].link;
+      
+      if (link)
+      {
+        window.location = link;
+      }
+      else
+      {
+        var title = boxes[el.boxIdx].title;
+        js_growl.addMessage({msg:'Clicked on ' + title});
+      }
     };
     
     var handleSideClick = function(evt, el)
