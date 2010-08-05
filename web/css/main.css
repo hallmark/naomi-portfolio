@@ -48,6 +48,15 @@ body {
 #logo .portfolio {
   color: #71879F;
 }
+#logo a:link,
+#logo a:visited {
+  text-decoration: none;
+}
+#logo a:hover {
+  text-decoration: underline;
+  color: #71879F;
+}
+
 #navBar {
   float: right;
   width: 520px;
