@@ -1,0 +1,78 @@
+/**
+ * Styles for portfolio detail pages.
+ */
+
+.three-cols a:link,
+.three-cols a:hover,
+.three-cols a:visited {
+  color: white;
+}
+
+.three-cols .col {
+  float: left;
+}
+
+.three-cols .col-1 {
+  width: 200px;
+}
+
+.three-cols .col-2 {
+  width: 270px;
+}
+
+.three-cols .col-3 {
+  width: 430px;
+  margin-left: 25px;
+}
+
+.projects-row {
+  padding: 0 0 10px;
+}
+
+.projects-rows div.first {
+  padding-top: 0;
+}
+
+.projects-row .row-hd {
+  padding: 0 0 7px 20px;
+  color: #71879F;
+  font-weight: bold;
+  background: transparent url('../images/triangle-right.gif') no-repeat scroll 0 2px;
+  cursor: pointer;
+}
+
+.projects-rows .active {
+  padding-bottom: 0;
+}
+
+.projects-rows .active .row-hd {
+  background-image: url('../images/triangle-down.gif');
+  background-position: 0 5px;
+}
+
+.thumbs {
+  display: none;
+}
+
+.thumbs .thumb {
+  display: inline-block;
+  float: left;
+  margin: 0 10px 10px 0;
+  position: relative;
+}
+
+.thumbs .selected {
+  border: 1px solid white;
+  top: -2px;
+  left: -2px;
+  margin: 0 6px 6px 0;
+  padding: 1px;
+}
+
+.projects-rows .active .thumbs {
+  display: block;
+}
+
+.thumbs .thumb img {
+  border: 0;
+}

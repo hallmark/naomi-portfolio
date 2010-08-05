@@ -3,6 +3,7 @@
   <title>Naomi Ture | Global Lives Project</title>
 
   <link type="text/css" rel="stylesheet" media="screen" href="css/main.css">
+  <link type="text/css" rel="stylesheet" media="screen" href="css/portfolio-detail.css">
   <style>
     
     #bd {
@@ -22,73 +23,6 @@
       margin-top: 0;
     }
     
-    .three-cols a:link,
-    .three-cols a:hover,
-    .three-cols a:visited {
-      color: white;
-    }
-    
-    .three-cols .col {
-      float: left;
-    }
-    
-    .three-cols .col-1 {
-      width: 200px;
-    }
-
-    .three-cols .col-2 {
-      width: 270px;
-    }
-
-    .three-cols .col-3 {
-      width: 430px;
-      margin-left: 25px;
-    }
-    
-    
-    .projects-row {
-      padding: 0 0 10px;
-    }
-    
-    .projects-rows div.first {
-      padding-top: 0;
-    }
-    
-    .projects-row .row-hd {
-      padding: 0 0 7px 20px;
-      color: #71879F;
-      font-weight: bold;
-      background: transparent url('images/triangle-right.gif') no-repeat scroll 0 2px;
-    }
-    
-    .projects-rows .active {
-      padding-bottom: 0;
-    }
-    
-    .projects-rows .active .row-hd {
-      background-image: url('images/triangle-down.gif');
-      background-position: 0 5px;
-    }
-    
-    .thumbs {
-      display: none;
-    }
-
-    .thumbs .thumb {
-      display: inline-block;
-      float: left;
-      padding: 0 10px 10px 0;
-    }
-    
-    .projects-rows .active .thumbs {
-      display: block;
-    }
-    
-    .thumbs .thumb img {
-      border: 0;
-    }
-    
-
   </style>
   
   <!-- YUI -->
@@ -111,6 +45,41 @@
   
   
   <script type="text/javascript">
+    YUI().use('node-base', function(Y) {
+         function init() {
+           // prototype 1.7...
+           //var frontHandler = new Event.Handler('stage', 'click', '.in-front', handleFrontClick);
+           //frontHandler.start();
+         
+           Event.observe('projectsRows', 'click', function(event) {
+             // did we click on a row label?
+             var rowHdEl = Event.findElement(event, '.row-hd');
+             if (rowHdEl)
+             {
+               // find the row element
+               var row = Event.findElement(event, '.projects-row');
+               if (row)
+               {
+                 // if already active, do nothing
+                 if (!row.hasClassName('active'))
+                 {
+                   // close all other rows
+                   $$('#projectsRows .projects-row').each(function(s) {
+                     if (s !== row)
+                     {
+                       s.removeClassName('active');
+                     }
+                   });
+                   
+                   // open this row
+                   row.addClassName('active');
+                 }
+               }
+             }
+           });
+         }
+         Y.on("domready", init);
+    });
 
   </script>
 
@@ -139,7 +108,7 @@
       <div class="three-cols">
         <div class="col col-1">
           
-          <div class="projects-rows">
+          <div class="projects-rows" id="projectsRows">
             <div class="projects-row first">
               <div class="row-hd">Documentary</div>
               <div class="thumbs">
@@ -184,7 +153,7 @@
             <div class="projects-row active">
               <div class="row-hd">Exhibits &amp; Interactives</div>
               <div class="thumbs">
-                <div class="thumb">
+                <div class="thumb selected">
                   <a href="portfolio-glp.html" title="Global Lives Project"><img width="75" height="50" src="images/exh_glp-blur.jpg"/></a>
                 </div>
                 <div class="thumb">
