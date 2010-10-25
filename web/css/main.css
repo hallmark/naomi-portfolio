@@ -66,22 +66,22 @@ body {
   text-align: right;
   padding-top: 6px;
 }
-#navBar a:link,
-#navBar a:visited,
-#navBar a:hover {
+#navBar a {
   color: #71879F;
   text-decoration: none;
   padding: 8px 9px;
   display: inline-block;
 }
-#navBar a.current:link,
-#navBar a.current:visited,
-#navBar a.current:hover {
+.page-section-home #navBar a.nav-home,
+.page-section-current-work #navBar a.nav-current-work,
+.page-section-portfolio #navBar a.nav-portfolio,
+.page-section-cv #navBar a.nav-cv,
+.page-section-bio #navBar a.nav-bio,
+.page-section-contact #navBar a.nav-contact {
   color: white;
   background-color: #71879F;
 }
-#navBar a:hover,
-#navBar a.current:hover {
+#navBar a:hover {
   text-decoration: underline;
 }
 .clear {

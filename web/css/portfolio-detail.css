@@ -61,7 +61,23 @@
   position: relative;
 }
 
-.thumbs .selected {
+.page-apm .thumbs .thumb-apm,
+.page-1md .thumbs .thumb-1md,
+.page-do .thumbs .thumb-do,
+.page-pw .thumbs .thumb-pw,
+.page-csma .thumbs .thumb-csma,
+.page-hoba .thumbs .thumb-hoba,
+.page-wave .thumbs .thumb-wave,
+.page-sl .thumbs .thumb-sl,
+.page-br .thumbs .thumb-br,
+.page-glp .thumbs .thumb-glp,
+.page-sr .thumbs .thumb-sr,
+.page-bth .thumbs .thumb-bth,
+.page-se .thumbs .thumb-se,
+.page-kmvt .thumbs .thumb-kmvt,
+.page-clay .thumbs .thumb-clay,
+.page-ak .thumbs .thumb-ak
+ {
   border: 1px solid white;
   top: -2px;
   left: -2px;
