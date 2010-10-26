@@ -1,0 +1,226 @@
+<html>
+<!--
+What needs to be modified:
+
+  1. The page title: <title>...</title>
+  
+  2. The <body> classes. Two CSS classes need to be edited in the
+     <body class="..."> element.
+     
+     a. Depending on the category (Documentary, Video, Exhibits, Designs),
+        set the "page-cat-*" CSS class.  It should be one of:
+              page-cat-documentary, page-cat-video, page-cat-exhibits, or
+              page-cat-designs
+        
+     b. Based on the HTML filename, the "page-*" CSS class needs to be set.
+        For example, if the filename is portfolio-glp.html, the CSS class
+        should be "page-glp".
+        
+  3. Add the 2 columns of main content, generally (a) text and (b) an image or
+     video.
+     If the picture or video uses the pop-up, set the "rel" attribute as
+     follows:
+          <a href="..." rel="prettyPhoto"><img src="thumbnail..."/></a>
+     
+  4. (optional) If nothing uses the prettyPhoto pop-up, the prettyPhoto css
+     and js can be removed from below.
+  
+-->
+<head>
+  <title>Naomi Ture | Page Title Here</title>
+
+  <link type="text/css" rel="stylesheet" media="screen" href="css/main.css">
+  <link type="text/css" rel="stylesheet" media="screen" href="css/portfolio-detail.css">
+  
+  <!-- YUI -->
+  <script type="text/javascript" charset="utf-8"
+          src="http://yui.yahooapis.com/3.1.1/build/yui/yui-min.js">
+  </script>
+  
+  <!-- Prototype and scriptaculous -->
+  <script src="http://ajax.googleapis.com/ajax/libs/prototype/1.6/prototype.js" type="text/javascript"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/scriptaculous/1.8/scriptaculous.js" type="text/javascript"></script>
+  
+  <!-- page-specific JavaScript -->
+  <script src="js/portfolio-detail.js" type="text/javascript"></script>
+	
+  <!-- jsGrowl -->
+  <link type="text/css" rel="stylesheet" media="screen" href="css/jsGrowl_white.css">
+  <link type="text/css" rel="stylesheet" media="screen" href="css/jsGrowl.css">
+  <script src="js/jsGrowl.js" type="text/javascript"></script>
+  <script src="js/jsGrowl_prototype.js" type="text/javascript"></script>
+  <script type="text/javascript">
+    var js_growl = new jsGrowl('js_growl');
+  </script>
+  
+  <!-- prettyPhoto -->
+  <link type="text/css" rel="stylesheet" media="screen" href="css/prettyPhoto-min.css">
+  <script src="js/jquery-1.3.2.min.js" type="text/javascript"></script>
+  <script src="js/jquery.prettyPhoto-3.0b.js" type="text/javascript"></script>
+  <script type="text/javascript" charset="utf-8">
+    $.noConflict();
+	</script>
+  <!-- end prettyPhoto -->
+	
+</head>
+<body class="page-section-portfolio page-cat-changeme page-changeme">
+
+<div id="pageContent">
+  <div id="hd">
+    <div id="logo">
+      <a href="index.html"><span class="name">Naomi Ture</span> <span class="portfolio">Portfolio</span></a>
+    </div>
+    <div id="navBar">
+      <a href="index.html" class="nav-home">HOME</a>
+      <a href="current-work.html" class="nav-current-work">CURRENT WORK</a>
+      <a href="portfolio.html" class="nav-portfolio">PORTFOLIO</a>
+      <a href="cv.html" class="nav-cv">CV</a>
+      <a href="bio.html" class="nav-bio">BIO</a>
+      <a href="contact.html" class="nav-contact">CONTACT</a>
+    </div>
+    <div class="clear">&nbsp;</div>
+  </div>
+  
+  <div id="bd">
+    <div id="bodyContent">
+      <div class="three-cols">
+        <div class="col col-1">
+          
+          <!--
+            -
+            - SIDE NAVIGATION
+            -
+            -->
+          <div class="projects-rows" id="projectsRows">
+            <div class="projects-row nav-cat-documentary first">
+              <div class="row-hd">Documentary</div>
+              <div class="thumbs">
+                <div class="thumb thumb-apm">
+                  <a href="portfolio-apm.html" title="A Perfect Match"><img width="75" height="50" src="images/doc_perfectmatch-blur.jpg"/></a>
+                </div>
+                <div class="thumb thumb-1md">
+                  <a href="portfolio-1md.html" title="One Million Donors"><img width="75" height="50" src="images/doc_onemillion-blur.jpg"/></a>
+                </div>
+                <div class="thumb thumb-do">
+                  <a href="portfolio-do.html" title="Draw Out"><img width="75" height="50" src="images/doc_drawout-blur.jpg"/></a>
+                </div>
+                <div class="thumb thumb-pw">
+                  <a href="portfolio-pw.html" title="Painting Worlds"><img width="75" height="50" src="images/doc_paintingworlds-blur.jpg"/></a>
+                </div>
+              </div>
+              <div class="clear">&nbsp;</div>
+            </div>
+
+            <div class="projects-row nav-cat-video">
+              <div class="row-hd">Video Production</div>
+              <div class="thumbs">
+                <div class="thumb thumb-csma">
+                  <a href="portfolio-csma.html" title=""><img width="75" height="50" src="images/vid_csma-blur.jpg"/></a>
+                </div>
+                <div class="thumb thumb-hoba">
+                  <a href="portfolio-hoba.html" title="Hands on Bay Area"><img width="75" height="50" src="images/vid_hoba-blur.jpg"/></a>
+                </div>
+                <div class="thumb thumb-wave">
+                  <a href="portfolio-wave.html" title="Wave"><img width="75" height="50" src="images/vid_wave-blur.jpg"/></a>
+                </div>
+                <div class="thumb thumb-sl">
+                  <a href="portfolio-sl.html" title="Shop Local"><img width="75" height="50" src="images/vid_shoplocal-blur.jpg"/></a>
+                </div>
+                <div class="thumb thumb-br">
+                  <a href="portfolio-br.html" title="Bridge to Employment"><img width="75" height="50" src="images/vid_bridge-blur.jpg"/></a>
+                </div>
+              </div>
+              <div class="clear">&nbsp;</div>
+            </div>
+
+            <div class="projects-row nav-cat-exhibits">
+              <div class="row-hd">Exhibits &amp; Interactives</div>
+              <div class="thumbs">
+                <div class="thumb thumb-glp">
+                  <a href="portfolio-glp.html" title="Global Lives Project"><img width="75" height="50" src="images/exh_glp-blur.jpg"/></a>
+                </div>
+                <div class="thumb thumb-sr">
+                  <a href="portfolio-sr.html" title="Step Remix"><img width="75" height="50" src="images/exh_stepremix-blur.jpg"/></a>
+                </div>
+                <div class="thumb thumb-bth">
+                  <a href="portfolio-bth.html" title="Breath"><img width="75" height="50" src="images/exh_breath-blur.jpg"/></a>
+                </div>
+                <div class="thumb thumb-se">
+                  <a href="portfolio-se.html" title="Steth E. and Howie C."><img width="75" height="50" src="images/exh_steth-blur.jpg"/></a>
+                </div>
+              </div>
+              <div class="clear">&nbsp;</div>
+            </div>
+
+            <div class="projects-row nav-cat-designs">
+              <div class="row-hd">Designs</div>
+              <div class="thumbs">
+                <div class="thumb thumb-kmvt">
+                  <a href="portfolio-kmvt.html" title="KMVT"><img width="75" height="50" src="images/graphic_kmvt-blur.jpg"/></a>
+                </div>
+                <div class="thumb thumb-clay">
+                  <a href="portfolio-clay.html" title="Claymation Summer Camp"><img width="75" height="50" src="images/graphic_clay-blur.jpg"/></a>
+                </div>
+                <div class="thumb thumb-ak">
+                  <a href="portfolio-ak.html" title="Aikido"><img width="75" height="50" src="images/graphic_aikido-blur.jpg"/></a>
+                </div>
+              </div>
+              <div class="clear">&nbsp;</div>
+            </div>
+
+          </div>
+          
+        </div>
+        <div class="col col-2">
+          <!--
+            -
+            - PAGE-SPECIFIC CONTENT HERE (text) [[
+            -
+            -->
+          <p>
+          <span style="font-weight: bold;">Changeme Title &mdash; 2010</span>
+          </p>
+
+          <p>
+          Description here.  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+          </p>
+
+          <!--
+            -
+            - ]] END CONTENT (text)
+            -
+            -->
+        </div>
+        <div class="col col-3">
+          <!--
+            -
+            - PAGE-SPECIFIC CONTENT HERE (image / video) [[
+            -
+            - A 425px wide by 285px tall image works well here.
+            -
+            -->
+            
+          <a href="http://vimeo.com/5399957" rel="prettyPhoto" title="Video title"><img src="http://motherjones.com/files/legacy/riff_blog/mojo-photo-snagglepuss.jpg"/></a>
+          
+          <!--
+            -
+            - ]] END CONTENT (image / video)
+            -
+            -->
+        </div>
+      </div>
+    </div>
+    
+    <div class="clear" style="height: 30px;">&nbsp;</div>
+
+  </div>
+  
+  <div id="ft">
+    Documentary, Video &amp; New Media Art
+  </div>
+</div>
+
+<div id="jsGrowl"></div>
+
+</body>
+</html>
