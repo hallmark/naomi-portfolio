@@ -4,26 +4,6 @@
 
   <link type="text/css" rel="stylesheet" media="screen" href="css/main.css">
   <link type="text/css" rel="stylesheet" media="screen" href="css/portfolio-detail.css">
-  <style>
-    
-    #bd {
-      height: auto;
-    }
-    
-    #bodyContent {
-      width: 930px;
-      margin: 40px auto 0;
-      position: relative;
-      color: white;
-      font-family: Arial;
-      font-size: 89%;
-    }
-    
-    #bodyContent p {
-      margin-top: 0;
-    }
-    
-  </style>
   
   <!-- YUI -->
   <script type="text/javascript" charset="utf-8"
@@ -34,6 +14,9 @@
   <script src="http://ajax.googleapis.com/ajax/libs/prototype/1.6/prototype.js" type="text/javascript"></script>
   <script src="http://ajax.googleapis.com/ajax/libs/scriptaculous/1.8/scriptaculous.js" type="text/javascript"></script>
   
+  <!-- page-specific JavaScript -->
+  <script src="js/portfolio-detail.js" type="text/javascript"></script>
+  
   <!-- jsGrowl -->
   <link type="text/css" rel="stylesheet" media="screen" href="css/jsGrowl_white.css">
   <link type="text/css" rel="stylesheet" media="screen" href="css/jsGrowl.css">
@@ -43,60 +26,6 @@
     var js_growl = new jsGrowl('js_growl');
   </script>
   
-  
-  <script type="text/javascript">
-    YUI().use('node-base', function(Y) {
-         function init() {
-           if ( $(document.body).hasClassName('page-cat-documentary') )
-           {
-             $$("div.nav-cat-documentary")[0].addClassName('active');
-           }
-           else if ( $(document.body).hasClassName('page-cat-video') )
-           {
-             $$("div.nav-cat-video")[0].addClassName('active');
-           }
-           else if ( $(document.body).hasClassName('page-cat-exhibits') )
-           {
-             $$("div.nav-cat-exhibits")[0].addClassName('active');
-           }
-           else if ( $(document.body).hasClassName('page-cat-designs') )
-           {
-             $$("div.nav-cat-designs")[0].addClassName('active');
-           }
-
-           Event.observe('projectsRows', 'click', function(event) {
-             // did we click on a row label?
-             var rowHdEl = Event.findElement(event, '.row-hd');
-             if (rowHdEl)
-             {
-               // find the row element
-               var row = Event.findElement(event, '.projects-row');
-               if (row)
-               {
-                 // if already active, do nothing
-                 if (!row.hasClassName('active'))
-                 {
-                   // close all other rows
-                   $$('#projectsRows .projects-row').each(function(s) {
-                     if (s !== row)
-                     {
-                       s.removeClassName('active');
-                     }
-                   });
-                   
-                   // open this row
-                   row.addClassName('active');
-                 }
-               }
-             }
-           });
-         }
-         Y.on("domready", init);
-    });
-
-  </script>
-
-
 </head>
 <body class="page-section-portfolio page-cat-exhibits page-glp">
 
@@ -121,6 +50,11 @@
       <div class="three-cols">
         <div class="col col-1">
           
+          <!--
+            -
+            - SIDE NAVIGATION
+            -
+            -->
           <div class="projects-rows" id="projectsRows">
             <div class="projects-row nav-cat-documentary first">
               <div class="row-hd">Documentary</div>

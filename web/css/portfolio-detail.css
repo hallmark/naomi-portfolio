@@ -2,6 +2,23 @@
  * Styles for portfolio detail pages.
  */
 
+#bd {
+  height: auto;
+}
+
+#bodyContent {
+  width: 930px;
+  margin: 40px auto 0;
+  position: relative;
+  color: white;
+  font-family: Arial;
+  font-size: 89%;
+}
+
+#bodyContent p {
+  margin-top: 0;
+}
+
 .three-cols a:link,
 .three-cols a:hover,
 .three-cols a:visited {
