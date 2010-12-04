@@ -1,0 +1,58 @@
+/*
+LAYOUT: One-Column (Left) Fixed
+DESCRIPTION: One-column 950px fixed layout
+*/
+
+body {
+    min-width:930px;
+}
+#header {
+    position:relative;
+}
+#branding {
+    width:930px;
+    margin:0 auto;
+}
+#access {
+    position:relative;
+    overflow:hidden;
+}
+.menu {
+    width:930px;
+    margin:0 auto;
+}
+#main {
+    width:930px;
+    margin:0 auto;
+    overflow:hidden;
+    position:relative;
+}
+#container {
+    width:940px;
+    float:right;
+    margin: 0;
+}
+#content {
+    width:940px;
+    overflow:hidden;
+  	margin: 0 0 0 10px;
+}
+.hentry {
+    width: 940px;
+}
+#comments {
+  width: 540px;
+}
+#footer {
+    clear:both;
+}
+#subsidiary {
+    width:940px;
+    margin:0 auto;
+    overflow:hidden;
+}
+#siteinfo {
+    clear:both;
+    width:940px;
+    margin:0 auto;
+}

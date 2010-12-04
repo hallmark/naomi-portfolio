@@ -1,0 +1,204 @@
+/*
+DESCRIPTION: Custom styles for the naomi-portfolio theme
+*/
+
+html {
+  background-color: #132940;
+  background-image: url('../images/mapbackdrop.jpg');
+  background-position: top center;
+}
+
+body {
+  background-color: transparent;
+}
+
+.clear {
+  clear: both;
+  font-size: 1px;
+}
+
+
+/* Header, Footer */
+#header, #footer {
+  width: 930px;
+  margin: 0 auto;
+}
+#header {
+  height: 40px;
+  padding-top: 130px;
+}
+#footer {
+  height: 50px;
+  padding-top: 7px;
+  border: none;
+}
+#siteinfo {
+  padding: 0;
+  font-family: Arial;
+  font-weight: bold;
+  font-size: 14px;
+  color: #71879F;
+  line-height: normal;
+}
+
+
+/* Branding */
+#branding {
+  float: left;
+  padding: 0;
+  margin: 0;
+  width: 320px;
+}
+#blog-title {
+  font-family: Arial;
+  font-weight: bold;
+  font-size: 29px;
+  line-height: 35px;
+}
+#branding .name {
+  color: white;
+}
+#branding .portfolio {
+  color: #71879F;
+}
+#branding a:link,
+#branding a:visited {
+  text-decoration: none;
+}
+#branding a:hover {
+  text-decoration: underline;
+  color: #71879F;
+}
+#blog-description {
+  display: none;
+}
+
+
+/* Primary Navigation */
+#access {
+  float: right;
+  width: 520px;
+  height: auto;
+  text-align: right;
+  padding-top: 6px;
+  border: none;
+}
+#access .menu {
+  width: auto;
+  float: right;
+  font-family: Arial;
+  font-weight: bold;
+  font-size: 15px;
+  text-transform: uppercase;
+}
+#access .menu ul {
+  border: none;
+}
+#access .menu li {
+  background-color: transparent;
+  margin-left: 4px;
+  line-height: normal;
+}
+#access .menu li.current_page_item,
+.cpt-project #access .menu li.menu-item-36 {
+  background-color: #71879F;
+}
+#access .menu a {
+  color: #71879F;
+  text-decoration: none;
+  padding: 8px 9px;
+  display: inline-block;
+  background-color: transparent;
+  border: none;
+}
+#access .menu li.current_page_item a,
+.cpt-project #access .menu li.menu-item-36 a {
+  color: white;
+}
+#access .menu a:hover {
+  text-decoration: underline;
+}
+
+
+/* Main Content */
+#main {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  border-width: 1px 0;
+  border-color: white;
+  border-style: solid;
+  clear: both;
+  position: relative;
+}
+#mainContent {
+  width: 930px;
+  margin: 22px auto 0;
+  position: relative;
+  color: white;
+  font-family: Arial;
+  font-size: 95%;
+  line-height: normal;
+}
+.cpt-project #mainContent {
+  margin-top: 40px;
+}
+#mainContent p {
+  margin-top: 0;
+}
+
+.singular .entry-content {
+  padding: 0;
+}
+
+.three-cols .col {
+  float: left;
+  width: 30%;
+  margin-left: 3%;
+}
+
+.three-cols div.first {
+  margin-left: 0;
+  width: 33%;
+}
+
+
+/* Home Page styles */
+.slug-home #main {
+  height: 398px;
+}
+
+
+/* Portfolio Project Grid Listings Page styles */
+.slug-portfolio .projects-row {
+  width: 910px;
+  border-top: 1px solid #71879F;
+  padding: 10px 0 17px;
+}
+
+.slug-portfolio .projects-rows div.first {
+  border: 0;
+}
+
+.slug-portfolio .projects-row .row-hd {
+  padding: 0 0 7px 20px;
+  color: #71879F;
+  font-weight: bold;
+  background: transparent url('../images/triangle-down.gif') no-repeat scroll 0 5px;
+}
+
+.slug-portfolio .thumbs .thumb {
+  display: inline-block;
+  float: left;
+  padding-right: 30px;
+}
+
+.slug-portfolio .thumbs .thumb img {
+  border: 0;
+  float: none;
+  margin: 0;
+  padding: 0;
+}
+
+
+

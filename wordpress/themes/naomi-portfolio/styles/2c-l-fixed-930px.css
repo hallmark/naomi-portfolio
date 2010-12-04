@@ -1,0 +1,37 @@
+/*
+LAYOUT: Two-Column (Left) Fixed
+DESCRIPTION: Two-column 950px fixed layout with one sidebar left of content
+*/
+
+#container {
+    width:930px;
+    float:right;
+    margin: 0 0 0 -200px;
+}
+#content {
+    width:725px;
+    overflow:hidden;
+    margin: 0 0 0 210px;
+}
+.hentry {
+    width:725px;
+}
+.main-aside {
+    width:190px;
+    float:left;
+    position:relative;
+}
+#primary {
+    float:left;
+}
+#secondary {
+    clear:left;
+}
+#subsidiary .aside {
+    width:300px;
+    float:left;
+    margin:0 20px 0 0;
+}
+#subsidiary #third {
+    margin:0;
+}
