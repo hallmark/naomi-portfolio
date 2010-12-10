@@ -201,4 +201,71 @@ body {
 }
 
 
+/* Portfolio Project Page styles */
+.cpt-project #nav-below {
+    display: none;
+}
+
+.cpt-project .projects-row {
+  padding: 0 0 10px;
+}
+.cpt-project .projects-rows div.first {
+  padding-top: 0;
+}
+.cpt-project .projects-row .row-hd {
+  padding: 0 0 7px 20px;
+  color: #71879F;
+  font-weight: bold;
+  background: transparent url('../images/triangle-right.gif') no-repeat scroll 0 2px;
+  cursor: pointer;
+}
+.cpt-project .projects-rows .active {
+  padding-bottom: 0;
+}
+.cpt-project .projects-rows .active .row-hd {
+  background-image: url('../images/triangle-down.gif');
+  background-position: 0 5px;
+}
+
+.cpt-project .thumbs {
+  display: none;
+}
+.cpt-project .thumbs .thumb {
+  display: inline-block;
+  float: left;
+  margin: 0 10px 10px 0;
+  position: relative;
+}
+.cpt-project .thumbs .selected
+ {
+  border: 1px solid white;
+  top: -2px;
+  left: -2px;
+  margin: 0 6px 6px 0;
+  padding: 1px;
+}
+.cpt-project .projects-rows .active .thumbs {
+  display: block;
+}
+.cpt-project .thumbs .thumb img {
+  border: 0;
+}
+
+.cpt-project .entry-title {
+    font-family: "Helvetica Neue",Arial,Helvetica,"Nimbus Sans L",sans-serif;
+    font-size: 21px;
+    font-weight: bold;
+    line-height: 1.3em;
+    text-transform: uppercase;
+    padding-bottom: 12px;
+}
+.cpt-project .entry-content h2 {
+    font-family: Georgia,"Bitstream Charter",serif;
+    font-size: 16px;
+    line-height: 20px;
+    padding: 0;
+    margin-bottom: 25px;
+}
+
+
 

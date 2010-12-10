@@ -111,22 +111,23 @@ add_action('thematic_abovefooter','childtheme_close_maincontent',1);
 
 // Don't show post/page headers in content area
 //
-function ntp_post_header($content) {
-  if ( is_singular() ) {
-    return '';
-  }
-  else {
-    return $content;
-  }
-}
-add_filter('thematic_postheader', 'ntp_post_header');
+//function ntp_post_header($content) {
+//  if ( is_singular() ) {
+//    return '';
+//  }
+//  else {
+//    return $content;
+//  }
+//}
+// TODO: testing
+//add_filter('thematic_postheader', 'ntp_post_header');
 
 
 // Don't show post/page titles in content area
 //
 function ntp_custom_post_header_title($content) {
   
-  if ( is_singular() ) {
+  if ( is_page() ) {
     return '';
   }
   else {

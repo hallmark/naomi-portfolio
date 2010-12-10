@@ -1,7 +1,7 @@
 <?php
 
 //
-//  Custom template for Portfolio Projects grid listing page
+//  Custom template for Home page
 //
 
     // calling the header.php
@@ -49,7 +49,53 @@
 					  
 					  <!-- CSS for this page -->
 					  <style>
-
+					    
+					    .centered-canvas {
+                width: 425px;
+                height: 285px;
+                margin: 55px auto 0;
+                position: relative;
+              }
+              #dummyFrontBox {
+                width: 425px;
+                height: 285px;
+                border: 1px solid white;
+                background-color: #71879F;
+                margin: 0;
+                z-index: 10;
+                position: relative;
+              }
+              .box {
+                position: absolute;
+                margin: 0;
+                cursor: pointer;
+              }
+              .box img {
+                width: 100%;
+                height: 100%;
+              }
+              .front-box {
+                width: 425px;
+                height: 285px;
+                border: 1px solid white;
+                background-color: #71879F;
+                margin: 0;
+                z-index: 10;
+                position: relative;
+              }
+              .back-box {
+                width: 185px;
+                height: 125px;
+                border: none;
+                position: absolute;
+                top: 90px;
+                z-index: 1;
+              }
+              .back-box img {
+                width: 185px;
+                height: 125px;
+                z-index: 10;
+              }
 
 
             </style>
