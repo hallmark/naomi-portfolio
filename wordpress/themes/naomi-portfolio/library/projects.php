@@ -116,7 +116,7 @@ function ntp_project_page_js() {
     	$scripts .= "\t";
     	$scripts .= '</script>' . "\n";
 	
-	    // Print filtered scripts
+	    // Print script tags
 	    print $scripts;
     }
 }

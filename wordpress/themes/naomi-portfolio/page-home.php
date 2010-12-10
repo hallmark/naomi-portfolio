@@ -13,6 +13,82 @@
 ?>
 
 		<div id="container">
+
+  <?php
+  //
+  //
+  //   ADD NEW CAROUSEL ITEMS HERE!!!
+  //
+  //
+  $front_box_post = 37;
+  $left_boxes_posts = array(65, 62);
+  $right_boxes_posts = array(51, 58);
+  
+  
+  function ntp_home_get_project_thumb_url($post_id) {
+    $image_id = get_post_thumbnail_id($post_id);
+    $image_src = wp_get_attachment_image_src( $image_id, 'large' );
+    return $image_src[0];
+  }
+  
+  function ntp_js_obj_for_post($post_id) {
+    $content = '';
+    $content .= "{\n";
+    $content .= "\t\t'imgSrc': '" . ntp_home_get_project_thumb_url($post_id) . "',\n";
+    $content .= "\t\t'title': " . json_encode(get_the_title($post_id)) . ",\n";
+    $content .= "\t\t'link': '" . get_permalink($post_id) . "'\n";
+    $content .= "\t}";
+    return $content;
+  }
+  
+  ?>
+
+      <script type="text/javascript">
+        
+        /**
+         *   JSON for carousel items
+         */
+        var frontBox = <?php echo ntp_js_obj_for_post($front_box_post); ?>;
+        var leftBoxes = [
+        <?php
+      
+        $left_json = array();
+        foreach ( $left_boxes_posts as $one_post ) {
+          $left_json[] = ntp_js_obj_for_post($one_post);
+        }
+      
+        echo join(",\n\t", $left_json) . "\n";
+        ?>
+        ];
+        var rightBoxes = [
+        <?php
+      
+        $right_json = array();
+        foreach ( $right_boxes_posts as $one_post ) {
+          $right_json[] = ntp_js_obj_for_post($one_post);
+        }
+      
+        echo join(",\n\t", $right_json) . "\n";
+        ?>
+        ];
+        
+        var boxes = leftBoxes.reverse().concat(frontBox, rightBoxes);
+        var frontIdx = leftBoxes.length;
+        var coverflow = new SplashCoverflow( boxes, frontIdx );
+        
+        YUI().use('node-base', function(Y) {
+             function init() {
+               //js_growl.addMessage({msg:'initializing ' + boxes.length + ' items..'});
+               //js_growl.addMessage({msg:'CSS Transitions: ' + (support.csstransitions? 'supported':'unsupported')});
+               
+               coverflow.render();
+             }
+             Y.on("domready", init);
+        });
+        
+      </script>
+
+
 		
 			<?php thematic_abovecontent(); ?>
 		
@@ -50,13 +126,13 @@
 					  <!-- CSS for this page -->
 					  <style>
 					    
-					    .centered-canvas {
+					    .slug-home .centered-canvas {
                 width: 425px;
                 height: 285px;
                 margin: 55px auto 0;
                 position: relative;
               }
-              #dummyFrontBox {
+              .slug-home #dummyFrontBox {
                 width: 425px;
                 height: 285px;
                 border: 1px solid white;
@@ -65,16 +141,16 @@
                 z-index: 10;
                 position: relative;
               }
-              .box {
+              .slug-home .box {
                 position: absolute;
                 margin: 0;
                 cursor: pointer;
               }
-              .box img {
+              .slug-home .box img {
                 width: 100%;
                 height: 100%;
               }
-              .front-box {
+              .slug-home .front-box {
                 width: 425px;
                 height: 285px;
                 border: 1px solid white;
@@ -83,7 +159,7 @@
                 z-index: 10;
                 position: relative;
               }
-              .back-box {
+              .slug-home .back-box {
                 width: 185px;
                 height: 125px;
                 border: none;
@@ -91,7 +167,7 @@
                 top: 90px;
                 z-index: 1;
               }
-              .back-box img {
+              .slug-home .back-box img {
                 width: 185px;
                 height: 125px;
                 z-index: 10;
@@ -100,72 +176,9 @@
 
             </style>
             
-	
-	                    <?php
-	                    
-                      $project_categories = array('documentary', 'video-production', 'exhibits-interactives', 'designs');
-                      $first_row_class = ' first';
-                      
-                      ?>
-                      
-                      <div class="projects-rows">
-
-	                    <?php
-	                    
-	                    foreach ( $project_categories as $one_cat ) {
-	                      
-	                      $cat_obj = get_category_by_slug( $one_cat );
-	                      
-	                      // get the category name
-	                      $one_cat_name = $cat_obj->name;
-
-                        ?>
-
-                        <div class="projects-row<?php echo $first_row_class; ?>">
-                          <div class="row-hd"><?php echo $one_cat_name; ?></div>
-                          <div class="thumbs">
-
-      	                    <?php
-      	                    
-      	                    // get the projects for one category
-      	                    $qargs = array(
-      	                      'post_type' => 'ntp_project',
-      	                      'cat' => $cat_obj->cat_ID,
-      	                      'orderby' => 'menu_order',
-      	                      'order' => 'ASC',
-      	                      'posts_per_page' => -1
-      	                      );
-      	                    $my_query = new WP_Query($qargs);
-      	                    
-                            while ($my_query->have_posts()) {
-                              $my_query->the_post();
-
-                              ?>
-                              <div class="thumb">
-                                <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_post_thumbnail( 'grid-thumb', array('class'=>'') ); ?></a>
-                              </div>
-        	                    <?php
-      	                    
-    	                      }
-
-                            ?>
-
-                          </div>
-                          <div class="clear">&nbsp;</div>
-                        </div>
-
-  	                    <?php
-	                      
-	                      $first_row_class = '';
-	                      
-	                    }
-	                    
-	                    wp_reset_query();
-
-                      ?>
-                        
+                      <div class="centered-canvas" id="stage">
+                        <div id="dummyFrontBox"></div>
                       </div>
-                      <div class="clear" style="height: 30px;">&nbsp;</div>
                       
                       <?php
                       

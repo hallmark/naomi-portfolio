@@ -168,6 +168,14 @@ body {
   height: 398px;
 }
 
+.slug-home #mainContent,
+.slug-home #container,
+.slug-home #content,
+.slug-home .hentry {
+  margin: 0;
+  width: 100%;
+}
+
 
 /* Portfolio Project Grid Listings Page styles */
 .slug-portfolio .projects-row {

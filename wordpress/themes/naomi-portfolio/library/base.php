@@ -163,6 +163,43 @@ function ntp_post_footer($content) {
 add_filter('thematic_postfooter', 'ntp_post_footer');
 
 
+// Add JavaScript for Front page
+//
+function ntp_front_page_js() {
+		if ( is_front_page() ) {
+	    $scripttag_start = "\t";
+	    $scripttag_start .= '<script type="text/javascript" src="';
+
+	    $scriptdir_start = $scripttag_start;
+	    $scriptdir_start .= get_bloginfo('stylesheet_directory');
+	    $scriptdir_start .= '/js/';
+	    
+	    $googleapi_start = $scripttag_start;
+	    $googleapi_start .= 'http://ajax.googleapis.com/ajax/libs/';
+	    
+	    $scriptdir_end = '"></script>';
+	    
+	    $scripts = "\n";
+    	$scripts .= "\t";
+    	$scripts .= '<script type="text/javascript">' . "\n";
+    	$scripts .= "\t\t";
+    	$scripts .= 'jQuery.noConflict();' . "\n";
+    	$scripts .= "\t";
+    	$scripts .= '</script>' . "\n";
+    	
+	    $scripts .= "\n";
+	    $scripts .= $scripttag_start . 'http://yui.yahooapis.com/3.1.1/build/yui/yui-min.js' . $scriptdir_end . "\n";
+	    $scripts .= $googleapi_start . 'prototype/1.6/prototype.js' . $scriptdir_end . "\n";
+	    $scripts .= $googleapi_start . 'scriptaculous/1.8/scriptaculous.js' . $scriptdir_end . "\n";
+	    $scripts .= $scriptdir_start . 'splash-coverflow.js' . $scriptdir_end . "\n";
+	
+	    // Print script tags
+	    print $scripts;
+    }
+}
+add_action('wp_head','ntp_front_page_js');
+
+
 
 
 ?>
