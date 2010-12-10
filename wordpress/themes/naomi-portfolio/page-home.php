@@ -126,54 +126,6 @@
 					  <!-- CSS for this page -->
 					  <style>
 					    
-					    .slug-home .centered-canvas {
-                width: 425px;
-                height: 285px;
-                margin: 55px auto 0;
-                position: relative;
-              }
-              .slug-home #dummyFrontBox {
-                width: 425px;
-                height: 285px;
-                border: 1px solid white;
-                background-color: #71879F;
-                margin: 0;
-                z-index: 10;
-                position: relative;
-              }
-              .slug-home .box {
-                position: absolute;
-                margin: 0;
-                cursor: pointer;
-              }
-              .slug-home .box img {
-                width: 100%;
-                height: 100%;
-              }
-              .slug-home .front-box {
-                width: 425px;
-                height: 285px;
-                border: 1px solid white;
-                background-color: #71879F;
-                margin: 0;
-                z-index: 10;
-                position: relative;
-              }
-              .slug-home .back-box {
-                width: 185px;
-                height: 125px;
-                border: none;
-                position: absolute;
-                top: 90px;
-                z-index: 1;
-              }
-              .slug-home .back-box img {
-                width: 185px;
-                height: 125px;
-                z-index: 10;
-              }
-
-
             </style>
             
                       <div class="centered-canvas" id="stage">
