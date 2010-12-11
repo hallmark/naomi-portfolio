@@ -100,6 +100,7 @@ body {
   line-height: normal;
 }
 #access .menu li.current_page_item,
+.blog-post #access .menu li.menu-item-24,
 .cpt-project #access .menu li.menu-item-36 {
   background-color: #71879F;
 }
@@ -112,6 +113,7 @@ body {
   border: none;
 }
 #access .menu li.current_page_item a,
+.blog-post #access .menu li.menu-item-24 a,
 .cpt-project #access .menu li.menu-item-36 a {
   color: white;
 }
@@ -302,4 +304,36 @@ body {
 }
 
 
+/* Blog listing page styles */
+.not-singular .post {
+  width: 650px;
+  color: #000000;
+  background-color: #FFFFFF;
+  float: left;
+  clear: both;
+  /*
+  padding: 14px 20px;
+  margin: 10px 0 30px 200px;
+  */
+  padding: 24px 20px;
+  margin: 0 0 0 200px;
+}
+.not-singular .post .entry-content {
+  float: left;
+}
 
+
+/* Single blog post styles */
+.blog-post #content {
+  width: 650px;
+  color: #000000;
+  background-color: #FFFFFF;
+  float: left;
+  clear: both;
+  padding: 24px 20px 0;
+  margin: 0 0 20px 200px;
+  
+}
+.blog-post #content .hentry {
+  width: 100%;
+}

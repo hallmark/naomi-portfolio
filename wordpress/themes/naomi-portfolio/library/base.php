@@ -93,6 +93,17 @@ function childtheme_override_blogtitle() { ?>
 add_action('thematic_header','thematic_blogtitle',3);
 
 
+// Add a dynamic body class for single blog posts
+//
+function ntp_blogpost_dynamic_class($c) {
+  if ( is_single() && get_post_type() !== 'ntp_project' ) {
+    $c[] = 'blog-post';
+  }
+  return $c;
+}
+add_filter('thematic_body_class', 'ntp_blogpost_dynamic_class');
+
+
 // Wrap content with a '#mainContent' div
 //
 function childtheme_open_maincontent() { ?>
