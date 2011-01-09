@@ -116,27 +116,7 @@ var SplashCoverflow = Class.create({
       'zIndex': 10
     });
     this.repositionBox(aBox, 425, 285, 0, 0, useTransitions);
-    /*
-    if (useTransitions)
-    {
-      var curTop = parseInt(aBox.getStyle('top').replace("px", ""), 10);
-      var curLeft = parseInt(aBox.getStyle('left').replace("px", ""), 10);
-      new Effect.Move(aBox, {x: -curLeft, y: -curTop, duration:0.4, transition: Effect.Transitions.sinoidal});
-      
-      var curWidth = aBox.getWidth();
-      var pcnt = 425.0 / curWidth * 100.0;
-      //var curHeight = aBox.getHeight();
-      new Effect.Scale(aBox, pcnt, {scaleMode: { originalHeight: 285/pcnt*100.0, originalWidth: 425/pcnt*100.0 }, duration:0.4, transition: Effect.Transitions.sinoidal})
-    }
-    else
-    {
-      aBox.setStyle({
-        width: 425,
-        height: 285,
-        top: 0,
-        left: 0
-      });
-    }*/
+    
     aBox.addClassName('in-front');
     aBox.removeClassName('in-back');
     

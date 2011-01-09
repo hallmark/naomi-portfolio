@@ -29,6 +29,14 @@ function create_project_post_type() {
 }
 
 
+// Return ordered array of project categories for display in the 'Portfolio'
+// page and project sidebar
+//
+function ntp_get_project_categories() {
+  return array('documentary', 'video-production', 'exhibits-interactives', 'designs');
+}
+
+
 // Add a dynamic body class for Project pages
 //
 function ntp_project_dynamic_class($c) {

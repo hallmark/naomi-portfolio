@@ -4,7 +4,7 @@
 //  Custom template part for sidebar of a Portfolio Project page
 //
 
-$project_categories = array('documentary', 'video-production', 'exhibits-interactives', 'designs');
+$project_categories = ntp_get_project_categories();
 $first_row_class = ' first';
 
 $page_post_id = get_the_ID();
