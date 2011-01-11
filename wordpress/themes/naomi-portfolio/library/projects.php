@@ -33,7 +33,11 @@ function create_project_post_type() {
 // page and project sidebar
 //
 function ntp_get_project_categories() {
-  return array('documentary', 'video-production', 'exhibits-interactives', 'designs');
+  $options = get_option('ntp_theme_options');
+  $projectcats = $options['projectcats'];
+  $projectcats = str_replace(" ", "", $projectcats);
+  return explode(",", $projectcats);
+  //return array('documentary', 'video-production', 'exhibits-interactives', 'designs');
 }
 
 
