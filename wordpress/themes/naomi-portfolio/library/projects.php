@@ -109,7 +109,7 @@ function ntp_project_page_js() {
 	    $scriptdir_end = '"></script>';
 	    
 	    $scripts = "\n";
-	    $scripts .= $scripttag_start . 'http://yui.yahooapis.com/3.1.1/build/yui/yui-min.js' . $scriptdir_end . "\n";
+	    $scripts .= $scripttag_start . 'http://yui.yahooapis.com/3.2.0/build/yui/yui-min.js' . $scriptdir_end . "\n";
 	    $scripts .= $googleapi_start . 'prototype/1.6/prototype.js' . $scriptdir_end . "\n";
 	    $scripts .= $googleapi_start . 'scriptaculous/1.8/scriptaculous.js' . $scriptdir_end . "\n";
 	    $scripts .= $scriptdir_start . 'portfolio-detail.js' . $scriptdir_end . "\n";

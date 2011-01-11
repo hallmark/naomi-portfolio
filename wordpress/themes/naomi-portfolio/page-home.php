@@ -44,6 +44,16 @@
   ?>
 
       <script type="text/javascript">
+        var fringe = new Fringe({
+          options: [
+            {
+              name: 'useTransition',
+              defaultValue: false,
+              type: 'boolean',
+              labels: ['Use YUI.Transition', 'Use Effect lib']
+            }
+          ]
+        });
         
         /**
          *   JSON for carousel items
@@ -74,14 +84,15 @@
         
         var boxes = leftBoxes.reverse().concat(frontBox, rightBoxes);
         var frontIdx = leftBoxes.length;
-        var coverflow = new SplashCoverflow( boxes, frontIdx );
+        var coverflow = new SplashCoverflow( fringe, boxes, frontIdx );
         
-        YUI().use('node-base', function(Y) {
+        YUI().use('node-base', 'transition', function(Y) {
              function init() {
                //js_growl.addMessage({msg:'initializing ' + boxes.length + ' items..'});
                //js_growl.addMessage({msg:'CSS Transitions: ' + (support.csstransitions? 'supported':'unsupported')});
                
-               coverflow.render();
+               fringe.render();
+               coverflow.render(Y);
              }
              Y.on("domready", init);
         });

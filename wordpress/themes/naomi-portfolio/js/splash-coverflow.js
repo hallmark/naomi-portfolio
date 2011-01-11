@@ -1,22 +1,13 @@
 
 var SplashCoverflow = Class.create({
-  initialize: function(boxes, frontIndex) {
+  initialize: function(fringe, boxes, frontIndex) {
+    this.fringe = fringe;
     this.boxes = boxes;
     this.frontIndex = frontIndex;
-    this.support = {};
-    
-    // from http://gist.github.com/373874
-    // (heavyweight method would be to use http://www.modernizr.com/docs/#csstransitions)
-    this.support.csstransitions =  (function(){
-        var thisBody = document.body || document.documentElement,
-        thisStyle = thisBody.style,
-        support = thisStyle.WebkitTransition !== undefined || thisStyle.MozTransition !== undefined || thisStyle.OTransition !== undefined || thisStyle.transition !== undefined;
-
-        return support;
-    })();
   },
   
-  render: function() {
+  render: function(Y) {
+    this.Y = Y;
     this._initBoxes();
     this._attachEvents();
   },
@@ -83,14 +74,28 @@ var SplashCoverflow = Class.create({
   {
     if (useTransitions)
     {
-      var curTop = parseInt(aBox.getStyle('top').replace("px", ""), 10);
-      var curLeft = parseInt(aBox.getStyle('left').replace("px", ""), 10);
-      new Effect.Move(aBox, {x: newLeft-curLeft, y: newTop-curTop, duration:0.4, transition: Effect.Transitions.sinoidal});
-      
-      var curWidth = aBox.getWidth();
-      var pcnt = newWidth / curWidth * 100.0;
-      //var curHeight = aBox.getHeight();
-      new Effect.Scale(aBox, pcnt, {scaleMode: { originalHeight: newHeight/pcnt*100.0, originalWidth: newWidth/pcnt*100.0 }, duration:0.4, transition: Effect.Transitions.sinoidal})
+      if (this.fringe.getValue('useTransition'))
+      {
+        this.Y.one(aBox).transition({
+          duration: 0.4,
+          easing: 'ease-in-out',
+          width: newWidth + 'px',
+          height: newHeight + 'px',
+          top: newTop + 'px',
+          left: newLeft + 'px'
+        });
+      }
+      else
+      {
+        var curTop = parseInt(aBox.getStyle('top').replace("px", ""), 10);
+        var curLeft = parseInt(aBox.getStyle('left').replace("px", ""), 10);
+        new Effect.Move(aBox, {x: newLeft-curLeft, y: newTop-curTop, duration:0.4, transition: Effect.Transitions.sinoidal});
+
+        var curWidth = aBox.getWidth();
+        var pcnt = newWidth / curWidth * 100.0;
+        //var curHeight = aBox.getHeight();
+        new Effect.Scale(aBox, pcnt, {scaleMode: { originalHeight: newHeight/pcnt*100.0, originalWidth: newWidth/pcnt*100.0 }, duration:0.4, transition: Effect.Transitions.sinoidal})
+      }
     }
     else
     {
