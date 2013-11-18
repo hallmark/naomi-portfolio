@@ -6,6 +6,7 @@ YUI().use('node-base', function(Y) {
       animationSpeed: 'normal',
       animation_speed: 'normal',
       theme: 'facebook',
+      social_tools: '',
       default_width: 601,
       default_height: 398
     });
