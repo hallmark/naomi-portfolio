@@ -3,6 +3,8 @@
 	Use: Lightbox clone for jQuery
 	Author: Stephane Caron (http://www.no-margin-for-errors.com)
 	Version: 3.0
+	
+	2011-03-01: Edits by Mark Ture to add Vimeo Universal embed support.
 ------------------------------------------------------------------------- */
 
 (function($) {
@@ -228,6 +230,14 @@
 						if(settings.autoplay) movie += "&autoplay=1";
 					
 						toInject = settings.flash_markup.replace(/{width}/g,correctSizes['width']).replace(/{height}/g,correctSizes['height']).replace(/{wmode}/g,settings.wmode).replace(/{path}/g,movie);
+					break;
+				
+					case 'vimeo-universal':
+						correctSizes = _fitToViewport(movie_width,movie_height); // Fit item to viewport
+					
+						frame_url = pp_images[setPosition];
+				
+						toInject = settings.iframe_markup.replace(/{width}/g,correctSizes['width']).replace(/{height}/g,correctSizes['height']).replace(/{path}/g,frame_url);
 					break;
 				
 					case 'vimeo':
@@ -602,6 +612,8 @@
 		function _getFileType(itemSrc){
 			if (itemSrc.match(/youtube\.com\/watch/i)) {
 				return 'youtube';
+			}else if (itemSrc.match(/player\.vimeo\.com/i)) {
+				return 'vimeo-universal';
 			}else if (itemSrc.match(/vimeo\.com/i)) {
 				return 'vimeo';
 			}else if(itemSrc.indexOf('.mov') != -1){ 
