@@ -77,10 +77,10 @@ if ( function_exists( 'add_theme_support') ) {
 }
 
 // Filter away the default scripts loaded with Thematic
-function childtheme_head_scripts() {
- // Abscence makes the heart grow fonder
+function childtheme_remove_scripts(){
+ remove_action('wp_enqueue_scripts','thematic_head_scripts');
 }
-add_filter('thematic_head_scripts','childtheme_head_scripts');
+add_action('init','childtheme_remove_scripts');
 
 // Stylized title in branding
 //
@@ -102,6 +102,17 @@ function ntp_blogpost_dynamic_class($c) {
   return $c;
 }
 add_filter('thematic_body_class', 'ntp_blogpost_dynamic_class');
+
+
+// Add a dynamic nav menu class for single blog posts
+//
+function ntp_blogpost_nav_class($classes, $item) {
+  if ( is_single() && get_post_type() !== 'ntp_project' && $item->title == "Blog" ) {
+    $classes[] = 'current_page_item';
+  }
+  return $classes;
+}
+add_filter('nav_menu_css_class', 'ntp_blogpost_nav_class', 10 , 2);
 
 
 // Wrap content with a '#mainContent' div
@@ -178,38 +189,14 @@ add_filter('thematic_postfooter', 'ntp_post_footer');
 //
 function ntp_front_page_js() {
 		if ( is_front_page() ) {
-	    $scripttag_start = "\t";
-	    $scripttag_start .= '<script type="text/javascript" src="';
-
-	    $scriptdir_start = $scripttag_start;
-	    $scriptdir_start .= get_bloginfo('stylesheet_directory');
-	    $scriptdir_start .= '/js/';
-	    
-	    $googleapi_start = $scripttag_start;
-	    $googleapi_start .= 'http://ajax.googleapis.com/ajax/libs/';
-	    
-	    $scriptdir_end = '"></script>';
-	    
-	    $scripts = "\n";
-    	$scripts .= "\t";
-    	$scripts .= '<script type="text/javascript">' . "\n";
-    	$scripts .= "\t\t";
-    	$scripts .= 'jQuery.noConflict();' . "\n";
-    	$scripts .= "\t";
-    	$scripts .= '</script>' . "\n";
-    	
-	    $scripts .= "\n";
-	    $scripts .= $scripttag_start . 'http://yui.yahooapis.com/3.2.0/build/yui/yui-min.js' . $scriptdir_end . "\n";
-	    $scripts .= $googleapi_start . 'prototype/1.6/prototype.js' . $scriptdir_end . "\n";
-	    $scripts .= $googleapi_start . 'scriptaculous/1.8/scriptaculous.js' . $scriptdir_end . "\n";
-	    $scripts .= $scriptdir_start . 'fringe.js' . $scriptdir_end . "\n";
-	    $scripts .= $scriptdir_start . 'splash-coverflow.js' . $scriptdir_end . "\n";
-	
-	    // Print script tags
-	    print $scripts;
+		  wp_enqueue_script('yui-script', '//yui.yahooapis.com/3.2.0/build/yui/yui-min.js', false, '3.2.0');
+		  wp_enqueue_script('prototype');
+		  wp_enqueue_script('scriptaculous-effects');
+		  wp_enqueue_script('fringe-script', get_stylesheet_directory_uri() . '/js/fringe.js', array('prototype'));
+		  wp_enqueue_script('splash-coverflow-script', get_stylesheet_directory_uri() . '/js/splash-coverflow.js', array('prototype', 'scriptaculous-effects', 'fringe-script'));
     }
 }
-add_action('wp_head','ntp_front_page_js');
+add_action('wp_enqueue_scripts','ntp_front_page_js');
 
 
 

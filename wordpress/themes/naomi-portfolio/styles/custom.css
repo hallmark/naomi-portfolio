@@ -99,9 +99,7 @@ body {
   margin-left: 4px;
   line-height: normal;
 }
-#access .menu li.current_page_item,
-.blog-post #access .menu li.menu-item-24,
-.cpt-project #access .menu li.menu-item-36 {
+#access .menu li.current_page_item {
   background-color: #71879F;
 }
 #access .menu a {
@@ -112,9 +110,7 @@ body {
   background-color: transparent;
   border: none;
 }
-#access .menu li.current_page_item a,
-.blog-post #access .menu li.menu-item-24 a,
-.cpt-project #access .menu li.menu-item-36 a {
+#access .menu li.current_page_item a {
   color: white;
 }
 #access .menu a:hover {
@@ -227,6 +223,7 @@ body {
   display: inline-block;
   float: left;
   padding-right: 30px;
+  margin-bottom: 18px;
 }
 
 .slug-portfolio .thumbs .thumb img {
