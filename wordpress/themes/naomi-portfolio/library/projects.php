@@ -104,7 +104,7 @@ function ntp_project_page_js() {
 		  wp_enqueue_script('prototype');
 		  wp_enqueue_script('scriptaculous');
 		  wp_enqueue_script('portfolio-detail-script', get_stylesheet_directory_uri() . '/js/portfolio-detail.js', array('jquery', 'yui-script', 'prototype'));
-		  wp_enqueue_script('prettyphoto-script', get_stylesheet_directory_uri() . '/js/jquery.prettyPhoto-3.0b.js', array('jquery'), '3.1.5');
+		  wp_enqueue_script('prettyphoto-script', get_stylesheet_directory_uri() . '/js/jquery.prettyPhoto-min.js', array('jquery'), '3.1.5');
     }
 }
 add_action('wp_enqueue_scripts','ntp_project_page_js');
