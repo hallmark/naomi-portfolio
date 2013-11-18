@@ -25,6 +25,9 @@ $cats_for_page = wp_get_post_categories( get_the_ID() );
 
 	                    <?php
 	                    
+	                    // expand at most one category for a given project, even if it has multiple categories assigned
+	                    $has_expanded_cat = false;
+	                    
 	                    foreach ( $project_categories as $one_cat ) {
 	                      
 	                      $cat_obj = get_category_by_slug( $one_cat );
@@ -32,9 +35,10 @@ $cats_for_page = wp_get_post_categories( get_the_ID() );
 	                      // get the category name
 	                      $one_cat_name = $cat_obj->name;
 	                      
-	                      // TODO: see if this category is the active one.  If so, set the 'active' class.
-	                      if ( in_array( $cat_obj->cat_ID, $cats_for_page ) ) {
+	                      // see if this category is the active one.  If so, set the 'active' class.
+	                      if ( !$has_expanded_cat && in_array( $cat_obj->cat_ID, $cats_for_page ) ) {
 	                        $active_row_class = ' active';
+	                        $has_expanded_cat = true;
 	                      } else {
 	                        $active_row_class = '';
 	                      }
